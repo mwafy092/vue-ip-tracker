@@ -1,0 +1,24 @@
+{
+  "name": "vue-project",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "leaflet": "^1.8.0",
+    "vue": "^3.2.37",
+    "vue-spinner": "^1.0.4",
+    "vue-spinners": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.1",
+    "sass": "^1.54.4",
+    "sass-loader": "^13.0.2",
+    "vite": "^3.0.1"
+  }
+}
