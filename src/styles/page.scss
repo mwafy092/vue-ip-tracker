@@ -2,99 +2,108 @@ $Very_Dark_Gray: hsl(0, 0%, 17%);
 $Dark_Gray: hsl(0, 0%, 59%);
 
 header {
-  background-image: url("../assets/pattern-bg.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 250px;
-  .header__content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 40px;
-    .header__title {
-      text-align: center;
-      color: #fff;
-      font-size: 25px;
-      font-weight: 500;
-    }
-    .header__input {
-      padding: 10px 0 20px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      input {
-        width: 400px;
-        height: 40px;
-        border-radius: 10px 0 0 10px;
-        border: none;
-        padding: 0 10px;
-        &:focus {
-          outline: none;
-        }
-      }
-      .input__arrow {
-        cursor: pointer;
-        background-color: $Very_Dark_Gray;
-        width: 40px;
-        height: 40px;
+    background-image: url('../assets/pattern-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    .header__content {
         display: flex;
         justify-content: center;
-        align-items: center;
-        border-radius: 0 10px 10px 0;
-        img {
-          width: 8px;
+        flex-direction: column;
+        padding-top: 40px;
+        .header__title {
+            text-align: center;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 500;
         }
-      }
+        .header__input {
+            padding: 10px 0 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            input {
+                width: 400px;
+                height: 40px;
+                border-radius: 10px 0 0 10px;
+                border: none;
+                padding: 0 10px;
+                &:focus {
+                    outline: none;
+                }
+            }
+            .input__arrow {
+                border: none;
+                cursor: pointer;
+                background-color: $Very_Dark_Gray;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 0 10px 10px 0;
+                img {
+                    width: 8px;
+                }
+            }
+        }
     }
-  }
 }
 .ip__info {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-  width: 70vw;
-  height: 120px;
-  margin: -60px auto 0;
-  border-radius: 10px;
-  .empty__state {
-    font-weight: 700;
-    color: $Dark_Gray;
-  }
-  .ip__info__chunk {
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4) {
-      border-left: 1px solid $Dark_Gray;
-      padding-left: 30px;
-      height: fit-content;
+    position: absolute;
+    z-index: 99999;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    width: 70vw;
+    height: 120px;
+    margin: -60px auto 0;
+    border-radius: 10px;
+    .empty__state {
+        font-weight: 700;
+        color: $Dark_Gray;
     }
-    .ip__info__title {
-      padding: 0;
-      margin: 0;
-      font-weight: 500;
-      font-size: 12px;
-      color: $Dark_Gray;
-      text-transform: uppercase;
+    .ip__info__chunk {
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4) {
+            border-left: 1px solid $Dark_Gray;
+            padding-left: 30px;
+            height: fit-content;
+        }
+        .ip__info__title {
+            padding: 0;
+            margin: 0;
+            font-weight: 500;
+            font-size: 12px;
+            color: $Dark_Gray;
+            text-transform: uppercase;
+        }
+        .ip__info__result {
+            font-size: 18px;
+            font-weight: 700;
+            color: #000;
+        }
     }
-    .ip__info__result {
-      font-size: 18px;
-      font-weight: 700;
-      color: #000;
-    }
-  }
 }
 #map {
-  height: 180px;
+    height: 180px;
 }
 .error__msg {
-  color: #fff;
-  font-size: 13px;
-  font-weight: 500;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 10px;
 }
 .error__outline {
-  border: 2px solid red !important;
+    background-color: red !important;
+}
+
+.map__container {
 }
