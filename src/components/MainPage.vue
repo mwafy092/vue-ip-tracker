@@ -2,7 +2,9 @@
     <main class="component-fluid">
         <header>
             <div class="auto__detect">
-                <button @click="autoDetect">Locate Me</button>
+                <button @click="autoDetect">
+                    Locate Me <img src="../assets/locator.png" width="20" />
+                </button>
             </div>
             <div class="header__content">
                 <p class="header__title">IP Address Tracker</p>
