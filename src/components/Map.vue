@@ -1,5 +1,5 @@
 <template>
-    <div style="height: 100vh; width: 100vw">
+    <div style="height: calc(100vh - 250px); width: 100vw">
         <l-map
             v-if="this.location.lat"
             v-model="zoom"
@@ -17,7 +17,6 @@
                 <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
             </l-marker>
         </l-map>
-        {{ this.location.lat }}
     </div>
 </template>
 <script>
