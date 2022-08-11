@@ -1,6 +1,9 @@
 <template>
     <main class="component-fluid">
         <header>
+            <div class="auto__detect">
+                <button @click="autoDetect">Locate Me</button>
+            </div>
             <div class="header__content">
                 <p class="header__title">IP Address Tracker</p>
                 <form
@@ -73,6 +76,7 @@ export default {
             loading: false,
             error: '',
             center: [37, 7749, -122, 4194],
+            autoIp: '',
         };
     },
     components: {
@@ -80,6 +84,22 @@ export default {
         Map,
     },
     methods: {
+        autoDetect() {
+            axios(
+                'https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy'
+            ).then((ip) => {
+                this.autoIp = ip.data.ip;
+                axios(
+                    `https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy&ipAddress=${ip.data.ip}`
+                ).then((data) => {
+                    this.loading = true;
+                    setTimeout(() => {
+                        this.loading = false;
+                        this.ipData = data?.data;
+                    }, 2000);
+                });
+            });
+        },
         getIPInfo(e) {
             if (
                 /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(

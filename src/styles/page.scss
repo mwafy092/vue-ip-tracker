@@ -107,7 +107,23 @@ header {
 
 .map__container {
 }
-
+.auto__detect {
+    position: fixed;
+    right: 0;
+    top: 150px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    z-index: 99999999;
+    button {
+        border: none;
+        font-size: 13px;
+        background-color: $Very_Dark_Gray;
+        color: #fff;
+        border-radius: 5px 0 0 5px;
+        padding: 5px;
+        cursor: pointer;
+    }
+}
 @media screen and (max-width: 1400px) {
     .ip__info {
         width: 80vw;
@@ -139,11 +155,11 @@ header {
         }
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 550px) {
     .ip__info {
         flex-direction: column;
         height: fit-content;
-        width: fit-content;
+        width: 80vw;
         padding: 20px;
         justify-content: center;
         align-items: center;
