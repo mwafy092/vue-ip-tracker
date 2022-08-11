@@ -140,4 +140,25 @@ header {
     }
 }
 @media screen and (max-width: 990px) {
+    .ip__info {
+        flex-direction: column;
+        height: fit-content;
+        width: fit-content;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        .ip__info__chunk {
+            border: none !important;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            padding: 0 !important;
+            margin: 5px 0;
+            .ip__info__result {
+                font-size: 13px;
+            }
+        }
+    }
 }
