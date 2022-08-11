@@ -12,9 +12,10 @@
             ></l-tile-layer>
             <l-control-layers />
 
-            <l-marker
-                :lat-lng="[this.location.lat, this.location.lng]"
-            ></l-marker>
+            <l-marker :lat-lng="[this.location.lat, this.location.lng]">
+                <img src= />
+                <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
+            </l-marker>
         </l-map>
         {{ this.location.lat }}
     </div>
@@ -51,9 +52,9 @@ export default {
     },
     data() {
         return {
-            zoom: 2,
-            iconWidth: 25,
-            iconHeight: 40,
+            zoom: 5,
+            iconWidth: 40,
+            iconHeight: 50,
         };
     },
     computed: {
@@ -61,7 +62,7 @@ export default {
             return { lat: this.lat, lng: this.lng };
         },
         iconUrl() {
-            return `https://placekitten.com/${this.iconWidth}/${this.iconHeight}`;
+            return 'icon-location.svg';
         },
         iconSize() {
             return [this.iconWidth, this.iconHeight];
