@@ -107,3 +107,37 @@ header {
 
 .map__container {
 }
+
+@media screen and (max-width: 1400px) {
+    .ip__info {
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 1150px) {
+    .ip__info {
+        width: 90vw;
+        .ip__info__chunk {
+            .ip__info__title {
+                font-size: 11px;
+            }
+            .ip__info__result {
+                font-size: 16px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 990px) {
+    .ip__info {
+        width: 100vw;
+        .ip__info__chunk {
+            .ip__info__title {
+                font-size: 10px;
+            }
+            .ip__info__result {
+                font-size: 14px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 990px) {
+}
