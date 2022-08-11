@@ -3,10 +3,7 @@
         <l-map
             v-model="zoom"
             v-model:zoom="zoom"
-            :center="[
-                this.location.lat || 37.2431,
-                this.location.lng || -115.793,
-            ]"
+            :center="[this.location.lat || 25.0, this.location.lng || -71.0]"
             @move="log('move')"
         >
             <l-tile-layer
@@ -16,8 +13,8 @@
 
             <l-marker
                 :lat-lng="[
-                    this.location.lat || 37.2431,
-                    this.location.lng || -115.793,
+                    this.location.lat || 25.0,
+                    this.location.lng || -71.0,
                 ]"
             >
                 <img src= />
