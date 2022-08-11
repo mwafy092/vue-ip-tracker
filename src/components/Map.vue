@@ -1,10 +1,12 @@
 <template>
     <div style="height: calc(100vh - 250px); width: 100vw">
         <l-map
-            v-if="this.location.lat"
             v-model="zoom"
             v-model:zoom="zoom"
-            :center="[this.location.lat, this.location.lng]"
+            :center="[
+                this.location.lat || 37.2431,
+                this.location.lng || -115.793,
+            ]"
             @move="log('move')"
         >
             <l-tile-layer
@@ -12,7 +14,12 @@
             ></l-tile-layer>
             <l-control-layers />
 
-            <l-marker :lat-lng="[this.location.lat, this.location.lng]">
+            <l-marker
+                :lat-lng="[
+                    this.location.lat || 37.2431,
+                    this.location.lng || -115.793,
+                ]"
+            >
                 <img src= />
                 <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
             </l-marker>
