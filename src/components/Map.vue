@@ -17,7 +17,6 @@
                     this.location.lng || -71.0,
                 ]"
             >
-                <img src= />
                 <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
             </l-marker>
         </l-map>
