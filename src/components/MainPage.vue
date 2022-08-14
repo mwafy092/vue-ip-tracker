@@ -47,7 +47,9 @@
             </div>
             <div class="ip__info__chunk">
                 <p class="ip__info__title">TIMEZONE</p>
-                <p class="ip__info__result">{{ ipData?.location?.timezone }}</p>
+                <p class="ip__info__result">
+                    UTC {{ ipData?.location?.timezone }}
+                </p>
             </div>
             <div class="ip__info__chunk">
                 <p class="ip__info__title">ISP</p>
@@ -98,7 +100,7 @@ export default {
                     setTimeout(() => {
                         this.loading = false;
                         this.ipData = data?.data;
-                    }, 2000);
+                    });
                 });
             });
         },
@@ -119,7 +121,7 @@ export default {
                     setTimeout(() => {
                         this.loading = false;
                         this.ipData = data?.data;
-                    }, 2000);
+                    });
                 });
             } else {
                 document

@@ -68,6 +68,8 @@ header {
     .empty__state {
         font-weight: 700;
         color: $Dark_Gray;
+        padding: 0;
+        margin: 0;
     }
     .ip__info__chunk {
         &:nth-child(2),
@@ -146,7 +148,7 @@ header {
         }
     }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 768px) {
     .ip__info {
         width: 100vw;
         .ip__info__chunk {
@@ -160,6 +162,20 @@ header {
     }
 }
 @media screen and (max-width: 550px) {
+    header {
+        .header__content {
+            width: 90vw;
+            margin: auto;
+            .header__input {
+                input {
+                    width: 80%;
+                }
+                .input__arrow {
+                    width: 40px;
+                }
+            }
+        }
+    }
     .ip__info {
         flex-direction: column;
         height: fit-content;
