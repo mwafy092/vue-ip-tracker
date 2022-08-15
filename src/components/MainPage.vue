@@ -11,6 +11,7 @@
                 <form
                     class="header__input row"
                     @submit.prevent="(e) => getIPInfo(e)"
+                    v-on:touchstart="setTouch"
                 >
                     <input
                         type="text"
@@ -22,10 +23,25 @@
                     <button class="input__arrow" type="submit">
                         <img src="../assets/icon-arrow.svg" />
                     </button>
-                    <p class="error__msg" v-if="error">{{ error }}</p>
+                    <p class="error__msg" v-if="error && ip.length !== 0">
+                        {{ error }}
+                    </p>
+                    <p
+                        v-if="v$.ip.ipValidator.$invalid && ip"
+                        class="error__msg"
+                    >
+                        Please write a valid IP - ex: 12.2.1.2
+                    </p>
+                    <p
+                        v-if="v$.ip.required.$invalid && touched"
+                        class="error__msg"
+                    >
+                        Required IP Address
+                    </p>
                 </form>
             </div>
         </header>
+
         <section class="ip__info" v-if="!ipData && !loading">
             <p class="empty__state">Please Enter An IP Address</p>
         </section>
@@ -57,6 +73,7 @@
             </div>
         </section>
     </main>
+
     <section class="map__container row">
         <div class="col-12">
             <Map
@@ -71,8 +88,19 @@
 import axios from 'axios';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import Map from './Map.vue';
+import useVuelidate from '@vuelidate/core';
+import { required } from '@vuelidate/validators';
+
+const ipValidator = (value) =>
+    /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
+        value
+    );
+
 export default {
     name: 'MainPage',
+    setup() {
+        return { v$: useVuelidate() };
+    },
     data() {
         return {
             ip: '',
@@ -81,6 +109,15 @@ export default {
             error: '',
             center: [37, 7749, -122, 4194],
             autoIp: '',
+            touched: false,
+        };
+    },
+    validations() {
+        return {
+            ip: {
+                required,
+                ipValidator,
+            },
         };
     },
     components: {
@@ -88,6 +125,9 @@ export default {
         Map,
     },
     methods: {
+        setTouch() {
+            this.touched = true;
+        },
         autoDetect() {
             axios(
                 'https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy'
@@ -105,11 +145,7 @@ export default {
             });
         },
         getIPInfo(e) {
-            if (
-                /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(
-                    e.target[0].value
-                )
-            ) {
+            if (ipValidator(e.target[0].value)) {
                 this.error = '';
                 document
                     .getElementsByTagName('button')[0]

@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
+    "@vuelidate/core": "^2.0.0-alpha.44",
+    "@vuelidate/validators": "^2.0.0-alpha.31",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
     "leaflet": "^1.8.0",
