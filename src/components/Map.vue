@@ -9,7 +9,7 @@
             <l-tile-layer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             ></l-tile-layer>
-            <l-control-layers />
+            <LControlLayers />
 
             <l-marker
                 :lat-lng="[this.location.lat || 0, this.location.lng || 0]"
@@ -33,7 +33,7 @@ import {
     LRectangle,
 } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
-
+console.log(LControlLayers.props.position.default);
 export default {
     name: 'Map',
     props: ['lat', 'lng'],
@@ -67,6 +67,7 @@ export default {
             return [this.iconWidth, this.iconHeight];
         },
     },
+    mounted() {},
     methods: {
         log(a) {
             console.log(a);
@@ -80,3 +81,16 @@ export default {
     },
 };
 </script>
+
+<style>
+.leaflet-control-layers {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+}
+.leaflet-control-zoom {
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+}
+</style>

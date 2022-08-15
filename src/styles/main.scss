@@ -9,3 +9,7 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
 }
+.leaflet-top {
+    top: 50%;
+    transform: translate(0%, -50%);
+}
