@@ -150,10 +150,10 @@ export default {
                 document
                     .getElementsByTagName('button')[0]
                     .classList.remove('error__outline');
+                this.loading = true;
                 axios(
                     `https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy&ipAddress=${this.ip}`
                 ).then((data) => {
-                    this.loading = true;
                     setTimeout(() => {
                         this.loading = false;
                         this.ipData = data?.data;
