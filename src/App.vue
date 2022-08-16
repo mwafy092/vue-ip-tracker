@@ -1,11 +1,11 @@
 <script setup>
-import MainPage from "./components/MainPage.vue";
+import MainPage from './components/MainPage.vue';
 </script>
 
 <template>
-  <div class="main__container"><MainPage /></div>
+    <div class="container-fluid"><MainPage /></div>
 </template>
 
 <style lang="scss" scoped>
-@import "./styles/main.scss";
+@import './styles/main.scss';
 </style>

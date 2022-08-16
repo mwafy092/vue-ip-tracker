@@ -151,7 +151,8 @@ header {
 }
 @media screen and (max-width: 768px) {
     .ip__info {
-        width: 100vw;
+        width: 90vw;
+        padding: 0 10px;
         .ip__info__chunk {
             .ip__info__title {
                 font-size: 10px;

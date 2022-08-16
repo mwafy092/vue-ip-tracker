@@ -1,5 +1,5 @@
 <template>
-    <main class="component-fluid">
+    <main>
         <header>
             <div class="auto__detect">
                 <button @click="autoDetect">
@@ -137,10 +137,8 @@ export default {
                     `https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy&ipAddress=${ip.data.ip}`
                 ).then((data) => {
                     this.loading = true;
-                    setTimeout(() => {
-                        this.loading = false;
-                        this.ipData = data?.data;
-                    });
+                    this.loading = false;
+                    this.ipData = data?.data;
                 });
             });
         },
@@ -154,10 +152,8 @@ export default {
                 axios(
                     `https://geo.ipify.org/api/v2/country,city?apiKey=at_txjvfLQeGNvNJ6VzBdO5UjJBdowCy&ipAddress=${this.ip}`
                 ).then((data) => {
-                    setTimeout(() => {
-                        this.loading = false;
-                        this.ipData = data?.data;
-                    });
+                    this.loading = false;
+                    this.ipData = data?.data;
                 });
             } else {
                 document
